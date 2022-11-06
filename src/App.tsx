@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import ImageContainer from "./components/ImageContainer";
 import Question from "./components/Question";
+import KeyboardContainer from "./components/KeyboardContainer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header title="Hangman" />
       <ImageContainer />
       <Question />
+      <KeyboardContainer />
     </>
   );
 }
