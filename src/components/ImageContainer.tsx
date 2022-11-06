@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Box } from "@mui/material";
+import Design from "./Design";
 
 function ImageContainer() {
   return (
     <Container maxWidth="sm">
-      <Box sx={{ bgcolor: "#cfe8fc", height: "50vh" }} />
+    <Design/>
     </Container>
   );
 }
