@@ -1,10 +1,8 @@
-import React from "react";
-import axios from "axios";
 import { Response } from "./Question";
 
 import { useState, useEffect } from "react";
 
-function CurrentWord() {
+function useCurrentWord() {
   const [word, setWord] = useState<string>("");
 
   useEffect(() => {
@@ -18,4 +16,4 @@ function CurrentWord() {
   return { word };
 }
 
-export default CurrentWord;
+export default useCurrentWord;
