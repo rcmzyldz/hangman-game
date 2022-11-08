@@ -1,6 +1,5 @@
-import { Response } from "./Question";
-
 import { useState, useEffect } from "react";
+import { Response } from "../App";
 
 function useCurrentWord() {
   const [word, setWord] = useState<string>("");

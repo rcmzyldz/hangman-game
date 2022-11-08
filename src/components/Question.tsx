@@ -1,27 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-export interface Response {
-  id: string;
+type QuestionProps = {
   word: string;
-  category: string;
-  numLetters: number;
-  numSyllables: number;
-  __v: number;
-}
+  hint: string;
+};
 
-function Question() {
-  const [word, setWord] = useState<string>("");
-  const [hint, setHint] = useState<string>("");
-
-  useEffect(() => {
-    fetch("https://www.wordgamedb.com/api/v1/words/random").then((response) => {
-      response.json().then((data: Response) => {
-        setWord(data.word);
-        setHint(data.category);
-      });
-    });
-  }, []);
-
+function Question({ word, hint }: QuestionProps) {
   return (
     <div>
       <p style={{ textAlign: "center" }}>Guess What!!</p>
