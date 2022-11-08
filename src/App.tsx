@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import ImageContainer from "./components/ImageContainer";
 import Question from "./components/Question";
 import KeyboardContainer from "./components/KeyboardContainer";
+import GuessCount from "./components/GuessCount";
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <ImageContainer />
       <Question />
       <KeyboardContainer />
+      <GuessCount/>
     </>
   );
 }

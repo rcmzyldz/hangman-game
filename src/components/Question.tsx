@@ -8,6 +8,7 @@ export interface Response {
   numSyllables: number;
   __v: number;
 }
+
 function Question() {
   const [word, setWord] = useState<string>("");
   const [hint, setHint] = useState<string>("");
@@ -26,7 +27,7 @@ function Question() {
       <p style={{ textAlign: "center" }}>Guess What!!</p>
       <p style={{ textAlign: "center" }}>Hint: {hint}</p>
       <div style={{ textAlign: "center" }}>
-        {[...Array(word.length)].map((x, i) => (
+        {[...Array(word.length)].map((i) => (
           <span key={i}>-</span>
         ))}
       </div>
