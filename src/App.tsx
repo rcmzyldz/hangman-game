@@ -4,7 +4,6 @@ import { Typography } from "@mui/material";
 import { Container } from "@mui/material";
 import Design from "./components/Design";
 import { Button } from "@mui/material";
-import ClickLetter from "./components/ClickLetter";
 
 export interface Response {
   id: string;
@@ -21,6 +20,17 @@ function App() {
   const [word, setWord] = useState<string>("");
   const [hint, setHint] = useState<string>("");
   const [guessCount, setGuessCount] = useState(0);
+  const [placeArray, setplaceArray] = useState<string[]>([])
+  
+let letter :string; 
+let letterArray :string[]=word.split('');
+let placeArraystatus :string[]=[];
+for (const i of letterArray) {
+setplaceArray([...placeArray,'-']);
+
+}
+
+console.log(word)
 
   useEffect(() => {
     fetch("https://www.wordgamedb.com/api/v1/words/random").then((response) => {
@@ -34,11 +44,26 @@ function App() {
   const handleAmountOfGuess = () => {
     setGuessCount((prev) => prev + 1);
   };
-  
+
+  function ClickLetter(event : React.MouseEvent<HTMLButtonElement>){
+    event.preventDefault();
+     letter =event.currentTarget.innerText;
+     
+    event.currentTarget.disabled=true;
+    console.log(letter)
+    console.log(word)
+
+    word.split("").map((x,i)=>{
+      if(x == letter.toLowerCase() ){
+      placeArray[i]=letter.toLowerCase()
+      }
+    })
+ 
+  return letter;
+}
 
   return (
     <>
-  
       {/* Title */}
       <Typography variant="h3" align="center">
         Hangman
@@ -49,7 +74,20 @@ function App() {
       </Container>
 
       {/* Question */}
-      <Question word={word} hint={hint} />
+      {/*<Question word={word} hint={hint} />*/}
+      <div>
+      <p style={{ textAlign: "center" }}>Guess What!!</p>
+      <p style={{ textAlign: "center" }}>Hint: {hint}</p>
+      <div style={{ textAlign: "center" }}>
+           {
+           placeArray.map((x,i) => (
+            <span key={i}>{x}</span>
+          ))
+          }
+        
+      </div>
+    </div>
+
 
       {/* KeyboardContainer */}
       <div style={{ textAlign: "center" }}>
