@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import { Container } from "@mui/material";
 import Design from "./components/Design";
 import { Button } from "@mui/material";
+import ClickLetter from "./components/ClickLetter";
 
 export interface Response {
   id: string;
@@ -33,14 +34,15 @@ function App() {
   const handleAmountOfGuess = () => {
     setGuessCount((prev) => prev + 1);
   };
+  
 
   return (
     <>
+  
       {/* Title */}
       <Typography variant="h3" align="center">
         Hangman
       </Typography>
-
       {/* ImageContainer */}
       <Container maxWidth="sm">
         <Design />
@@ -57,7 +59,7 @@ function App() {
             key={x}
             variant="contained"
             sx={{ m: 1, p: 1 }}
-            onClick={() => {}}
+            onClick={ClickLetter}
           >
             {i}
           </Button>
